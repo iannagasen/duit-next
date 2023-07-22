@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import Topic from './Topic';
 
 interface Props {
   topics: Topic[],
@@ -18,4 +17,3 @@ export const NavBar:FC<Props> = ({topics, show}) => {
     </div>
   )
 }
-

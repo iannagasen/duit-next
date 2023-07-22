@@ -30,3 +30,25 @@ npm install -D @hookform/devtools
 ```
 
 
+```tsx
+function demo () {
+  const { register, handleSubmit, control } = useForm();
+
+  onSubmit
+
+  return (
+    <form onSubmit={}>
+      <label htmlFor="username" />
+      <input type="text" id="username" {...register("username")} />
+
+
+
+
+      <Devtools control={control}/>
+    </form>
+
+  )
+}
+
+```
+
