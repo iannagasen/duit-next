@@ -1,6 +1,6 @@
 interface McqChoice {
   id: number;
-  number: string;
+  // number: string;
   choice: string;
   explanation: string;
   isCorrect: string;

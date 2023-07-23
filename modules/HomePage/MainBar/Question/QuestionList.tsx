@@ -1,19 +1,14 @@
 import React, { FC, useState } from 'react'
 import QuestionCard from './QuestionCard';
+import axios from 'axios';
+import { BASE_URL } from '@/modules/common/constants/base-url';
 
 interface Props {
   questions: Question[];
-  onUpdateQuestion: (question: Question) => void;
+  onUpdateQuestion: (question: UpdateQuestionRequestBody) => void;
 }
 
 const QuestionList:FC<Props> = ({ questions, onUpdateQuestion }) => {
-  // const [activeQuestionId, setActiveQuestionId] = useState<number>();
-
-  const handleQuestionUpdate = (question: Question) => {
-    onUpdateQuestion(question);
-    // setActiveQuestionId(question.id);
-  }
-
   return (
     <div>
     {
@@ -21,7 +16,7 @@ const QuestionList:FC<Props> = ({ questions, onUpdateQuestion }) => {
         <QuestionCard 
           key={q.id || i} 
           question={q} 
-          onUpdate={handleQuestionUpdate} />
+          onUpdate={onUpdateQuestion} />
       ))
     }
     </div>

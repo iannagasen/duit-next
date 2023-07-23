@@ -11,13 +11,13 @@ export const MainLayout: FC<Props> = ({
 }) => {
   return (
     <div className='flex min-h-screen items-stretch'>
-      <div className='basis-1/4'>
+      <div className='basis-1/4 m-2'>
         {navBar}
       </div>
-      <div className='basis-1/2'>
+      <div className='basis-1/2 m-2'>
         {mainBar}
       </div>
-      <div className='basis-1/4'>
+      <div className='basis-1/4 m-2'>
         {statBar}
       </div>
     </div>

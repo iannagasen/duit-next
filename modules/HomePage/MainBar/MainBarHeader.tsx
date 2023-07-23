@@ -7,7 +7,7 @@ interface Props {
 
 const MainBarHeader:FC<Props> = ({left, right}) => {
   return (
-    <div className='flex justify-between'>
+    <div className='flex justify-between mb-4'>
       <div className='flex-grow text-4xl font-extrabold orange_gradient'>
         {left}
       </div>
