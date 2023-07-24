@@ -3,6 +3,7 @@ import { Textarea } from '@/components/ui/textarea';
 import React, { FC, useState } from 'react'
 import McqChoices from './McqChoices';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface Props {
   question: Question;
@@ -29,12 +30,15 @@ const QuestionCard:FC<Props> = ({ question, onUpdate }) => {
         <div className='mb-4'>
           <label htmlFor='question'/>
           <textarea
-            className="block w-full resize-none align-bottom outline-none border-0 border-b-2 focus:border-blue-400 focus:ring-0 bg-inherit" 
             rows={getEstimatedRowCount(updatedQuestion.length)} 
             id='question'
             value={updatedQuestion}
             onChange={(e) => setUpdatedQuestion(e.target.value)}
             disabled={!isUpdating}
+            className={cn(
+              "block w-full resize-none align-bottom outline-none border-0 border-b-2 bg-inherit text-lg font-semibold",
+              "focus:border-blue-400 focus:ring-0"
+            )}
           />
         </div>
         <McqChoices choices={updatedChoices} onUpdate={handleChoiceUpdate} disabled={!isUpdating}/>

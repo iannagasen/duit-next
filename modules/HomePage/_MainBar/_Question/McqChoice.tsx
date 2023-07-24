@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React, { FC, useState } from 'react'
 
 interface Props {
@@ -7,9 +8,6 @@ interface Props {
 }
 
 const McqChoice:FC<Props> = ({ choice: c, onUpdate, disabled }) => {
-  // const [isChecked, setIsChecked] = useState()
-  console.log("here")
-
   return (
     <>
       <div className="flex space-x-2">
@@ -17,15 +15,22 @@ const McqChoice:FC<Props> = ({ choice: c, onUpdate, disabled }) => {
           <input 
             type="radio" 
             id={`c-${c.id}`} 
-            className="h-4 w-4 rounded-full text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed" 
+            className={cn(
+              "h-4 w-4 rounded-full text-primary-600 shadow-sm", 
+              "focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0", 
+              "disabled:cursor-not-allowed",
+            )}
             name={`c-${c.id}`}
-            checked={c.isCorrect === 'Y'}
             onChange={() => onUpdate(c, "UPDATE-CHOICE")}
             disabled={disabled}
+            checked={c.isCorrect === 'Y'}
           />
         </div>
         <label htmlFor={`c-${c.id}`} className="text-sm">
-          <div className="font-medium">{c.choice}</div>
+          <div className={cn(
+              "font-medium text-base", 
+              c.isCorrect === 'Y' && 'text-clr-accent'
+          )}>{c.choice}</div>
           <p>{c.explanation}</p>
         </label>
       </div>

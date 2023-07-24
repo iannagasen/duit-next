@@ -2,9 +2,9 @@
 
 import { MainLayout } from '@/modules/common/layout'
 import React, { FC, useState } from 'react'
-import { NavBar } from './NavBar/NavBar';
-import MainBar from './MainBar/MainBar';
-import StatBar from './StatBar/StatBar';
+import { NavBar } from './_NavBar/NavBar';
+import MainBar from './_MainBar/MainBar';
+import StatBar from './_StatBar/StatBar';
 import { DEFAULT_NULL_STR } from '../common/constants/constants';
 
 interface Props {
