@@ -106,7 +106,6 @@ const CounterContextProvider = ({ children }) => {
 };
 
 const CounterUseState = () => {
-  const [counter, setCounter] = useState(0)
   return (
     <ContainerCotextProvider>
       <AddOneButton setCounter={setCounter} />

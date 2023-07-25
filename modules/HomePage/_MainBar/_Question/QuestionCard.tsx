@@ -1,19 +1,21 @@
 import { Card } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import React, { FC, useState } from 'react'
+import React, { FC, useContext, useState } from 'react'
 import McqChoices from './McqChoices';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { QuestionsContext } from '../contexts/QuestionContextProvider';
 
 interface Props {
   question: Question;
-  onUpdate: (question: UpdateQuestionRequestBody) => void;
 }
 
-const QuestionCard:FC<Props> = ({ question, onUpdate }) => {
+const QuestionCard:FC<Props> = ({ question }) => {
   const [updatedQuestion, setUpdatedQuestion] = useState(question.question);
   const [updatedChoices, setUpdatedChoices] = useState(question.choices);
   const [isUpdating, setIsUpdating] = useState(false);
+
+  const [, dispatch] = useContext(QuestionsContext);
 
   const handleChoiceUpdate: UpdateChoiceDTO = (choice, payload) => {
     if (payload === 'UPDATE-CHOICE') {
@@ -59,11 +61,15 @@ const QuestionCard:FC<Props> = ({ question, onUpdate }) => {
             className='w-full bg-clr-accent'
             onClick={() => {
               setIsUpdating(false);
-              onUpdate({
-                id: question.id,
-                updatedQuestion: updatedQuestion,
-                updatedChoices: updatedChoices
-              })
+              dispatch({
+                type: 'UPDATE',
+                payload: {
+                  id: question.id,
+                  topic: question.topic,
+                  question: updatedQuestion,
+                  choices: updatedChoices
+                }
+              });
             }}>
             Save
           </Button>

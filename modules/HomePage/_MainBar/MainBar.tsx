@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import MainBarHeader from './MainBarHeader';
-import QuestionManager from './Question/QuestionManager';
+import QuestionManager from './_Question/QuestionManager';
 import { DEFAULT_NULL_STR } from '@/modules/common/constants/constants';
 
 
