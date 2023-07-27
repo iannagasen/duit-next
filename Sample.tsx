@@ -94,3 +94,28 @@ const UpdatableQuestionCard:FC<{question: Question2}> = ({ question }) => {
   )
 }
 
+/**
+ * QUIZ DESIGN
+ * 
+ *  1. User click the topic.
+ *  2. User will see a set of tabs
+ *    a. Notes - Default
+ *    b. Questions
+ *    c. Quiz
+ *  3. User clicks quiz
+ *    a. Create a Flow to choose the quiz format
+ *    FLOW:
+ *      1. Choose quiz type
+ *        - mcq
+ *        - identification
+ *        - mix of mcq/identification
+ *        - matching type
+ *        - review
+ *      2. Time limit of whole quiz:
+ *        - specific or no limit
+ *      3. Time limit per quiz
+ *        - specific or no limit
+ *        - not visible if no limit from no. 2
+ *      4. Start ?
+ *    b. 
+ */

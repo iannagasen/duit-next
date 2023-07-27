@@ -12,6 +12,8 @@ import { QuestionsContext } from '../contexts/QuestionContextProvider';
 const QuestionList:FC<{}> = () => {
   const [questions,] = useContext(QuestionsContext);
 
+  console.log(questions);
+
   return (
     <div>
     {

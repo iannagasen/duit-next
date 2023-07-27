@@ -12,7 +12,6 @@ interface Props {
   questions: Question[];
 }
 
-
 export const HomePage:FC<Props> = ({ topics, questions}) => {
   const [mainContent, setMainContent] = useState({type: DEFAULT_NULL_STR, topic: DEFAULT_NULL_STR});
 

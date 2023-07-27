@@ -43,9 +43,26 @@ Components:
       - questions
     - uses:
       - Q
-  
+
+## DESIGN OF MCQ QUIZ
+1. McqQuizContainer
+  - props:
+    - questions:
+    - options:
+  - context:
+    - McqQuizContext
+      - keeps track of current items done
+      - types:
+        - SELECT_ANSWER
+        - UPDATE_ANSWER
+        - SUBMIT_QUIZ
+        - SUBMIT_ANSWER
+
+---------------------
 
 Tasks:
   - [X] Add color to each flex items in the Main Layout
     - implemented using Quizlet colors
-  - [ ] Able to add question
+  - [X] Able to add question
+  - [X] Move to useContext to avoid Prop Drilling
+  - [ ] Add Template for TimedMcqQuiz

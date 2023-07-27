@@ -1,0 +1,1 @@
+type MainBarTab = 'Content' | 'Questions' | 'Quiz';
