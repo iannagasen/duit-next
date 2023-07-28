@@ -4,6 +4,7 @@ import QuestionManager from './_Question/QuestionManager';
 import { DEFAULT_NULL_STR } from '@/modules/common/constants/constants';
 import MainBarTab from './MainBarTab';
 import McqQuizContainer from './_Quiz/McqQuizContainer';
+import McqQuizManager from './_Quiz/McqQuizManager';
 
 
 interface Props {
@@ -19,7 +20,7 @@ const MainBar:FC<Props> = ({ topic, questions }) => {
       <MainBarHeader left="Topic" right={topic} />
       { topic && <MainBarTab selected={selectedTab} onSelect={(t) => setSelectedTab(t)} /> }
       { topic && selectedTab === 'Questions' && <QuestionManager questions={questions} topic={topic} /> }
-      { topic && selectedTab === 'Quiz' && <McqQuizContainer questions={questions} /> }
+      { topic && selectedTab === 'Quiz' && <McqQuizManager questions={questions} /> }
     </div>
   )
 }

@@ -13,6 +13,12 @@
           - UPDATE_ANSWER
           - SUBMIT_QUIZ
           - SUBMIT_ANSWER
+
+
+  Pagka submit:
+    - green -> correct 
+    - red -> yung maling answer nya
+    - show explanation
 */
 
 import { Dispatch, FC, ReactNode, createContext, useReducer } from "react";

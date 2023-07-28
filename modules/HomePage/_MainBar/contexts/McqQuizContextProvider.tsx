@@ -1,11 +1,14 @@
 import { Dispatch, FC, ReactNode, createContext, useReducer } from "react";
 
-interface McqQuizItemState {
+export interface McqQuizItemState {
   questionId: number,
   selectedChoiceId: number,
 }
 
-export type McqQuizState = McqQuizItemState[];
+export type McqQuizState = {
+  isSubmitted: boolean
+  itemsState: McqQuizItemState[]
+};
 
 type McqQuizContextAction = 
   | { type: 'SELECT_ANSWER', payload: McqQuizItemState }
@@ -15,9 +18,21 @@ type McqQuizContextAction =
 
 const reducer = (quizItemState: McqQuizState, action: McqQuizContextAction ): McqQuizState => {
   switch(action.type) {
-    case "SELECT_ANSWER": return [ ...quizItemState, action.payload ];
-    case "UPDATE_ANSWER": return quizItemState.map(q => q.questionId === action.payload.questionId ? action.payload : q);
-    case "SUBMIT_QUIZ": return quizItemState; // return current state for now.
+    case "SELECT_ANSWER": 
+      return {
+        isSubmitted: false,
+        itemsState: [ ...quizItemState.itemsState, action.payload ]
+      }
+    case "UPDATE_ANSWER": 
+      return {
+        isSubmitted: false,
+        itemsState: quizItemState.itemsState.map(q => q.questionId === action.payload.questionId ? action.payload : q)
+      }
+    case "SUBMIT_QUIZ": 
+      return {
+        isSubmitted: true,
+        itemsState: quizItemState.itemsState
+      }
   }
 }
 
