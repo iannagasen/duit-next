@@ -9,7 +9,8 @@ type McqQuizManagerProps = {
 const McqQuizManager:FC<McqQuizManagerProps> = ({ questions }) => {
   const quizState:McqQuizState = {
     isSubmitted: false,
-    itemsState: convertToMcqQuizState(questions)
+    itemsState: convertToMcqQuizState(questions),
+    timeTaken: 0,
   }
 
   return (

@@ -4,14 +4,14 @@ import React, { FC } from 'react'
 const ScoreTallyContainer:FC<ScoreTally> = (score) => {
   return (
     <Dialog defaultOpen>
-      <DialogContent className='bg-clr-accent'>
+      <DialogContent className='border-clr-modal bg-clr-modal opacity-85 top-[30%]'>
         <DialogHeader>
-          <DialogTitle>Quiz Statistics:</DialogTitle>
-          <DialogDescription>
-            <div>Score: {score.score}</div>
-            <div>Score: {score.score}</div>
-            <div>Score: {score.score}</div>
-          </DialogDescription>
+          <DialogTitle>
+            <div className='text-3xl font-extrabold mb-2'>Quiz Statistics</div>
+            <div className='text-xl'>Score: {score.score}</div>
+            <div className='text-xl'>Unanswered: {score.unAnswered}</div>
+            <div className='text-xl'>Total: {score.total}</div>
+          </DialogTitle>
         </DialogHeader>
       </DialogContent>
     </Dialog>

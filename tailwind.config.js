@@ -54,7 +54,8 @@ module.exports = {
         'clr-background': '#0a092d',
         'clr-primary': '#4255ff',
         'clr-secondary': '#2e3856',
-        'clr-accent': '#e2651d'
+        'clr-accent': '#EB733F',
+        'clr-modal': '#4EF056'
       },
       borderRadius: {
         lg: "var(--radius)",

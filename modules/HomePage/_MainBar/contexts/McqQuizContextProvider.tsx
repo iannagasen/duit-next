@@ -8,6 +8,7 @@ export interface McqQuizItemState {
 export type McqQuizState = {
   isSubmitted: boolean
   itemsState: McqQuizItemState[]
+  timeTaken: number
 };
 
 type McqQuizContextAction = 
@@ -20,18 +21,18 @@ const reducer = (quizItemState: McqQuizState, action: McqQuizContextAction ): Mc
   switch(action.type) {
     case "SELECT_ANSWER": 
       return {
-        isSubmitted: false,
+        ...quizItemState,
         itemsState: [ ...quizItemState.itemsState, action.payload ]
       }
     case "UPDATE_ANSWER": 
       return {
-        isSubmitted: false,
+        ...quizItemState,
         itemsState: quizItemState.itemsState.map(q => q.questionId === action.payload.questionId ? action.payload : q)
       }
     case "SUBMIT_QUIZ": 
       return {
+        ...quizItemState,
         isSubmitted: true,
-        itemsState: quizItemState.itemsState
       }
   }
 }
