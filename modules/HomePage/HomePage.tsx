@@ -8,7 +8,7 @@ import StatBar from './_StatBar/StatBar';
 import { DEFAULT_NULL_STR } from '../common/constants/constants';
 
 interface Props {
-  topics: Topic[],
+  topics: string[],
   questions: Question[];
 }
 

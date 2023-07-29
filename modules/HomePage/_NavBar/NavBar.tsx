@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Topic from './Topic'
 
 interface Props {
-  topics: Topic[],
+  topics: string[],
   show: (type: string, payload: string) => void,
 }
 
@@ -12,7 +12,7 @@ export const NavBar:FC<Props> = ({topics, show}) => {
       <div>Topics</div>
       {
         topics.map(t => (
-          <Topic key={t.id} name={t.topic} show={show} />
+          <Topic key={t} name={t} show={show} />
         ))
       }
     </div>

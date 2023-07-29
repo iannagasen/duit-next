@@ -6,8 +6,6 @@ import { McqQuizContext } from '../contexts/McqQuizContextProvider'
 const McqQuizQuestionCard:FC<Question> = ( question ) => {
   const [quizState, dispatch] = useContext(McqQuizContext);
 
-  console.log(quizState)
-
   const selectedChoiceId = quizState.itemsState.find(q => q.questionId === question.id)?.selectedChoiceId;
   const isSubmitted = quizState.isSubmitted;
 

@@ -1,4 +1,7 @@
+import { BASE_URL } from "@/modules/common/constants/base-url";
+import axios from "axios";
 import { Dispatch, FC, ReactNode, createContext, useReducer } from "react";
+import { CreateMcqQuizRequestBody } from './../../types/request/CreateMcqQuizRequestBody.types';
 
 export interface McqQuizItemState {
   questionId: number,
@@ -22,14 +25,24 @@ const reducer = (quizItemState: McqQuizState, action: McqQuizContextAction ): Mc
     case "SELECT_ANSWER": 
       return {
         ...quizItemState,
-        itemsState: [ ...quizItemState.itemsState, action.payload ]
+        itemsState: [...quizItemState.itemsState, action.payload]
       }
     case "UPDATE_ANSWER": 
       return {
         ...quizItemState,
         itemsState: quizItemState.itemsState.map(q => q.questionId === action.payload.questionId ? action.payload : q)
       }
-    case "SUBMIT_QUIZ": 
+    case "SUBMIT_QUIZ":
+      // todo function that will receive a type of the request body
+      // this will enhance type system
+      console.log(quizItemState)
+      console.log(CreateMcqQuizRequestBody.fromQuizState(quizItemState));
+      console.log("SUBMITTING")
+      axios
+        .post(`${BASE_URL}/quiz`, CreateMcqQuizRequestBody.fromQuizState(quizItemState))
+        .then(d => console.log(d))
+        .catch(e => console.log(e))
+
       return {
         ...quizItemState,
         isSubmitted: true,
@@ -45,6 +58,7 @@ type McqQuizContextProviderProps = {
 }
 
 const McqQuizContextProvider:FC<McqQuizContextProviderProps> = ({ children, quizState }) => {
+
   return (
     <McqQuizContext.Provider value={useReducer(reducer, quizState)}>
       {children}
