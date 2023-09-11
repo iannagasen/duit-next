@@ -14,13 +14,10 @@ const MainBarTab:FC<MainBarTabProps> = ({ selected, onSelect }) => {
     <ul className="grid grid-flow-col text-center bg-clr-secondary rounded-lg m-3 p-3">
       { tabs.map(t => (
         <li key={t}>
-          <a 
-            className={cn(
-              "flex justify-center py-2", 
-              selected === t && 'bg-clr-accent rounded-lg shadow')
-            }
-            onClick={() => onSelect(t)}
-          >
+          <a className={cn(
+                "flex justify-center py-2", 
+                selected === t && 'bg-clr-accent rounded-lg shadow')}
+             onClick={() => onSelect(t)}>
             {t}
           </a>
         </li>

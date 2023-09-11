@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { StatBarContext } from '../contexts/StatBarContextProvider';
+import QuizStatBar from './QuizStatBar';
  
 const StatBar = () => {
+  const [quizStat, ] = useContext(StatBarContext);
+
   return (
-    <div className='p-2 m-2'>
-      This is the StatBar
+    <div className='flex p-2 m-2'>
+      <QuizStatBar quizStat={quizStat}/>
     </div>
   )
 }

@@ -3,4 +3,4 @@ interface Question {
   topic: string;
   question: string;
   choices: McqChoice[];
-}
+}   

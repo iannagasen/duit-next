@@ -1,10 +1,9 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import MainBarHeader from './MainBarHeader';
 import QuestionManager from './_Question/QuestionManager';
-import { DEFAULT_NULL_STR } from '@/modules/common/constants/constants';
 import MainBarTab from './MainBarTab';
-import McqQuizContainer from './_Quiz/McqQuizContainer';
 import McqQuizManager from './_Quiz/McqQuizManager';
+import { useStatBar } from '../hooks/useStatBar';
 
 
 interface Props {
@@ -14,6 +13,12 @@ interface Props {
 
 const MainBar:FC<Props> = ({ topic, questions }) => {
   const [selectedTab, setSelectedTab] = useState<MainBarTab>('Questions');
+  console.log('MainBar')
+
+  useStatBar({ 
+    type: selectedTab === 'Quiz' ? 'QUIZ_STAT' : 'EMPTY', 
+    quizTopic: 'AWS'
+  });
 
   return (
     <div className='flex flex-col p-2 m-2'>

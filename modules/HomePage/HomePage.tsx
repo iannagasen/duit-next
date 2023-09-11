@@ -6,6 +6,7 @@ import { NavBar } from './_NavBar/NavBar';
 import MainBar from './_MainBar/MainBar';
 import StatBar from './_StatBar/StatBar';
 import { DEFAULT_NULL_STR } from '../common/constants/constants';
+import StatBarContextProvider from './contexts/StatBarContextProvider';
 
 interface Props {
   topics: string[],
@@ -20,12 +21,14 @@ export const HomePage:FC<Props> = ({ topics, questions}) => {
   }
 
   return (
-    <div className='w-full bg-clr-background text-white'>
-      <MainLayout>
-        <NavBar show={showHandler} topics={topics} />
-        <MainBar questions={questions} topic={mainContent.topic} />
-        <StatBar />
-      </MainLayout>
+    <div className='w-full bg-clr-background text-white'> 
+      <StatBarContextProvider statInfo={null}>
+        <MainLayout>
+          <NavBar show={showHandler} topics={topics} />
+          <MainBar questions={questions} topic={mainContent.topic} />
+          <StatBar />
+        </MainLayout>
+      </StatBarContextProvider>
     </div>
   )
 }
