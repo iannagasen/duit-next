@@ -8,6 +8,8 @@ const McqQuizQuestionCard:FC<Question> = ( question ) => {
 
   const selectedChoiceId = quizState.itemsState.find(q => q.questionId === question.id)?.selectedChoiceId;
   const isSubmitted = quizState.isSubmitted;
+  
+  console.table(question. choices)
 
   return (
     <Card className='bg-clr-secondary border-none text-white m-3 p-3'>
@@ -45,7 +47,9 @@ const McqQuizQuestionCard:FC<Question> = ( question ) => {
               <div className={cn(
                 "font-medium text-base", 
                 isSubmitted && c.isCorrect === 'Y' && 'text-green-600',
-                isSubmitted && selectedChoiceId === c.id && c.isCorrect === 'N' && 'text-red-500'
+                isSubmitted && selectedChoiceId === c.id 
+                            && (c.isCorrect === 'N' || c.isCorrect === null)
+                            && 'text-red-500'
               )}>
                 {c.choice}
               </div>

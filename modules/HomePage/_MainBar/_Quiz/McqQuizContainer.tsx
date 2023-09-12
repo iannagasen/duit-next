@@ -17,8 +17,8 @@ const McqQuizContainer:FC<McqQuizContainerProps> = ({ questions }) => {
       <McqQuizQuestionList questions={questions}/>
       { !quizState.isSubmitted && 
         <Button 
-          className='w-full bg-clr-accent'
-          onClick={() => dispatch({type: 'SUBMIT_QUIZ'})}
+        className='w-full bg-clr-accent'
+        onClick={() => dispatch({type: 'SUBMIT_QUIZ'})}
         >
           Submit
         </Button>
@@ -27,15 +27,5 @@ const McqQuizContainer:FC<McqQuizContainerProps> = ({ questions }) => {
     </div>
   )
 }
-
-// const ScoreTallyContainer:FC<ScoreTally> = (score) => {
-//   return (
-//     <div>
-//       <div>TOTAL SCORE: {score.score}</div>
-//       <div>UNANSWERED ITEMS: {score.unAnswered}</div>
-//       <div>TOTAL NO OF ITEMS: {score.total}</div>
-//     </div>
-//   )
-// }
 
 export default McqQuizContainer

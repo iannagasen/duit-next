@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { StatBarContext } from '../contexts/StatBarContextProvider';
 import QuizStatBar from './QuizStatBar';
+import { QuizStat } from '../types/QuizStat.types';
  
 const StatBar = () => {
-  const [quizStat, ] = useContext(StatBarContext);
+  const [stat, ] = useContext(StatBarContext);
 
   return (
-    <div className='flex p-2 m-2'>
-      <QuizStatBar quizStat={quizStat}/>
+    <div className='p-2 m-2'>
+      { stat.type === 'QUIZ_STAT' && <QuizStatBar quizStat={stat}/> }
     </div>
   )
 }

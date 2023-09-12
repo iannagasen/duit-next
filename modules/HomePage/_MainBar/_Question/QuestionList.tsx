@@ -3,6 +3,7 @@ import QuestionCard from './QuestionCard';
 import axios from 'axios';
 import { BASE_URL } from '@/modules/common/constants/base-url';
 import { QuestionsContext } from '../contexts/QuestionContextProvider';
+import YScrollable from '@/components/layout/yScrollable';
 
 // interface Props {
 //   questions: Question[];
@@ -13,13 +14,11 @@ const QuestionList:FC<{}> = () => {
   const [questions,] = useContext(QuestionsContext);
 
   return (
-    <div>
-    {
-      questions.map((q, i) => (
-        <QuestionCard key={q.id || i} question={q} />
-      ))
-    }
-    </div>
+    <YScrollable>{ 
+    questions.map((q, i) => (
+      <QuestionCard key={q.id || i} question={q} />
+    ))}
+    </YScrollable>
   )
 }
 

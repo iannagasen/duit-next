@@ -1,32 +1,30 @@
 'use client';
 
 import { Dispatch, FC, ReactNode, createContext, useReducer } from "react";
+import { QuizStat, StatInfo } from "../types/QuizStat.types";
+import { DEFAULT_STAT } from '../constants';
 
-export const StatBarContext = createContext<[QuizStat, Dispatch<StatBarAction>]>(undefined!);
-
-type QuizStat = {
-  dateTaken: string, 
-  score: number, 
-  totalItems: number
-}[] | null;
+export const StatBarContext = createContext<[StatInfo, Dispatch<StatBarAction>]>(undefined!);
 
 type Props = {
   children: ReactNode[] | ReactNode
-  statInfo: QuizStat
+  statInfo: StatInfo
 }
 
 type StatBarAction = 
-  | { type: 'QUIZ_STAT'
-      payload: QuizStat };
+  | { type: 'QUIZ_STAT', payload: QuizStat }
 
-const statBarReducer = (prevState: QuizStat, action: StatBarAction ) => {
-  console.log("statBarReducer")
-  return action.payload;
+const statBarReducer = (prevState: StatInfo, action: StatBarAction ): StatInfo => {
+  switch (action.type) {
+      case 'QUIZ_STAT': return action.payload;
+      default: return prevState;
+  }
 }
 
 const StatBarContextProvider:FC<Props> = ({ children, statInfo }) => {
+  const [state, dispatch] = useReducer(statBarReducer, statInfo);
   return (
-    <StatBarContext.Provider value={useReducer(statBarReducer, statInfo)}>
+    <StatBarContext.Provider value={[state, dispatch]}>
       {children}
     </StatBarContext.Provider>
   )

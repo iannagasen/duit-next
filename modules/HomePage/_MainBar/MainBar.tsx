@@ -13,11 +13,10 @@ interface Props {
 
 const MainBar:FC<Props> = ({ topic, questions }) => {
   const [selectedTab, setSelectedTab] = useState<MainBarTab>('Questions');
-  console.log('MainBar')
 
   useStatBar({ 
     type: selectedTab === 'Quiz' ? 'QUIZ_STAT' : 'EMPTY', 
-    quizTopic: 'AWS'
+    quizTopic: topic
   });
 
   return (
