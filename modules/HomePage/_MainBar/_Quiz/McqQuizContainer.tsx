@@ -1,9 +1,9 @@
 import React, { FC, useContext } from 'react'
 import McqQuizQuestionList from './McqQuizQuestionList'
-import McqQuizContextProvider, { McqQuizContext, McqQuizItemState, McqQuizState } from '../contexts/McqQuizContextProvider'
 import { Button } from '@/components/ui/button'
 import { calculateScore } from '../util/calculateScore'
 import ScoreTallyContainer from './ScoreTallyContainer'
+import { McqQuizContext } from '../contexts/McqQuizContextProvider'
 
 type McqQuizContainerProps = {
   questions: Question[]

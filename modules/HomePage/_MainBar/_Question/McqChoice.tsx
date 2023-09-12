@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 
 interface Props {
   choice: McqChoice;

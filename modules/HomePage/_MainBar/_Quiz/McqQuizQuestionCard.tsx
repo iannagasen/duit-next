@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useContext } from 'react'
 import { McqQuizContext } from '../contexts/McqQuizContextProvider'
 
 const McqQuizQuestionCard:FC<Question> = ( question ) => {

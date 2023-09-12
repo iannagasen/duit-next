@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { StatBarContext } from '../contexts/StatBarContextProvider';
 import QuizStatBar from './QuizStatBar';
-import { QuizStat } from '../types/QuizStat.types';
  
 const StatBar = () => {
   const [stat, ] = useContext(StatBarContext);

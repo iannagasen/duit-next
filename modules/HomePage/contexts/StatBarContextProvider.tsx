@@ -2,7 +2,6 @@
 
 import { Dispatch, FC, ReactNode, createContext, useReducer } from "react";
 import { QuizStat, StatInfo } from "../types/QuizStat.types";
-import { DEFAULT_STAT } from '../constants';
 
 export const StatBarContext = createContext<[StatInfo, Dispatch<StatBarAction>]>(undefined!);
 
